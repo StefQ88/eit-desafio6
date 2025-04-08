@@ -78,130 +78,134 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.title;
     console.log(title);
 
-    // MANEJO DE FORMULARIO
+    // MANEJO DE FORMULARIO -> DESCOMENTAR ESTA PARTE
 
     // Botones
-    const btn1 = document.getElementById("btnCompare1")
-    const btn2 = document.getElementById("btnCompare2")
+    // const btn1 = document.getElementById("btnCompare1")
+    // const btn2 = document.getElementById("btnCompare2")
 
-    let formData1 = {}, formData2 = {}
+    // let formData1 = {}, formData2 = {}
 
-    // Boton del primer integrante - capturo los valores de los inputs, escribo la funcion dentro del evento
-    btn1.addEventListener("click", () => {
+    // // Boton del primer integrante - capturo los valores de los inputs, escribo la funcion dentro del evento
+    // btn1.addEventListener("click", () => {
 
-        // capturo los valores
-        const f1 = document.getElementById("formFirstName1");
-        const s1 = document.getElementById("formSecondName1");
-        const a1 = document.getElementById("formFirstSurname1");
-        const b1 = document.getElementById("formSecondSurname1")
+    //     // capturo los valores
+    //     const f1 = document.getElementById("formFirstName1");
+    //     const s1 = document.getElementById("formSecondName1");
+    //     const a1 = document.getElementById("formFirstSurname1");
+    //     const b1 = document.getElementById("formSecondSurname1")
 
-        // formateo valores
-        const firstName1 = formatText(f1.value.trim())
-        const secondName1 = formatText(s1.value.trim())
-        const firstSurname1 = formatText(a1.value.trim())
-        const secondSurname1 = formatText(b1.value.trim())
+    //     // formateo valores
+    //     const firstName1 = formatText(f1.value.trim())
+    //     const secondName1 = formatText(s1.value.trim())
+    //     const firstSurname1 = formatText(a1.value.trim())
+    //     const secondSurname1 = formatText(b1.value.trim())
 
-        // valido primer integrante
-        if (!isValidPerson(firstName1, firstSurname1)) {
-            alert("El primer integrante debe tener al menos un nombre y un apellido.")
-            return
-        }
+    //     // valido primer integrante
+    //     if (!isValidPerson(firstName1, firstSurname1)) {
+    //         alert("El primer integrante debe tener al menos un nombre y un apellido.")
+    //         return
+    //     }
 
-        // Armo y muestro el nombre completo usando la funcion 
-        const fullName1 = `${firstName1} ${secondName1} ${firstSurname1} ${secondSurname1}`.replace(/\s+/g, ' ').trim();
-        console.log(`Integrante 1: ${formatName(fullName1)}`)
+    //     // Armo y muestro el nombre completo usando la funcion 
+    //     const fullName1 = `${firstName1} ${secondName1} ${firstSurname1} ${secondSurname1}`.replace(/\s+/g, ' ').trim();
+    //     console.log(`Integrante 1: ${formatName(fullName1)}`)
 
-        // Guardo los datos en el objeto para luego comparar
-        formData1 = {firstName1, secondName1, firstSurname1, secondSurname1}
-    })
+    //     // Guardo los datos en el objeto para luego comparar
+    //     formData1 = {firstName1, secondName1, firstSurname1, secondSurname1}
+    // })
 
-    // Boton del primer integrante - capturo los valores de los inputs, escribo la funcion dentro del evento
-    btn2.addEventListener("click", () => {
+    // // Boton del primer integrante - capturo los valores de los inputs, escribo la funcion dentro del evento
+    // btn2.addEventListener("click", () => {
 
-        const f2 = document.getElementById("formFirstName2")
-        const s1 = document.getElementById("formSecondName2")
-        const a1 = document.getElementById("formFirstSurname2")
-        const b1 = document.getElementById("formSecondSurname2")
+    //     const f2 = document.getElementById("formFirstName2")
+    //     const s1 = document.getElementById("formSecondName2")
+    //     const a1 = document.getElementById("formFirstSurname2")
+    //     const b1 = document.getElementById("formSecondSurname2")
 
-        const firstName2 = formatText(f2.value.trim())
-        const secondName2 = formatText(s1.value.trim())
-        const firstSurname2 = formatText(a1.value.trim())
-        const secondSurname2 = formatText(b1.value.trim())
+    //     const firstName2 = formatText(f2.value.trim())
+    //     const secondName2 = formatText(s1.value.trim())
+    //     const firstSurname2 = formatText(a1.value.trim())
+    //     const secondSurname2 = formatText(b1.value.trim())
 
-        if (!isValidPerson(firstName2, firstSurname2)) {
-            alert("El segundo integrante debe tener al menos un nombre y un apellido.")
-            return
-        }
+    //     if (!isValidPerson(firstName2, firstSurname2)) {
+    //         alert("El segundo integrante debe tener al menos un nombre y un apellido.")
+    //         return
+    //     }
 
-        const fullName2 = `${firstName2} ${secondName2} ${firstSurname2} ${secondSurname2}`.replace(/\s+/g, ' ').trim();
-        console.log(`Integrante 1: ${formatName(fullName2)}`)
+    //     const fullName2 = `${firstName2} ${secondName2} ${firstSurname2} ${secondSurname2}`.replace(/\s+/g, ' ').trim();
+    //     console.log(`Integrante 1: ${formatName(fullName2)}`)
 
-        formData2 = {firstName2, secondName2, firstSurname2, secondSurname2}
-    })
+    //     formData2 = {firstName2, secondName2, firstSurname2, secondSurname2}
+    // })
 
-    //
+
+
+
+    /*********************************************************/
     // FALTA AGREGAR COMPARACION PARA FORM
-    //
+    /********************************************************/
 
 
-    // MANEJO DE LISTA -> DESCOMENTAR ESTA PARTE
+    // MANEJO DE LISTA -> COMENTAR ESTA PARTE
     // Selecciona los elementos <dd> por clase 
-    // const member1Items = document.querySelectorAll("#member1 dd")
-    // const member2Items = document.querySelectorAll("#member2 dd")
 
-    // // Obtiene y formatea los datos del primer integrante
-    // const firstName1 = formatText(document.getElementById("firstName1").textContent.trim())
-    // const secondName1 = formatText(document.getElementById("secondName1").textContent.trim())
-    // const firstSurname1 = formatText(document.getElementById("firstSurname1").textContent.trim())
-    // const secondSurname1 = formatText(document.getElementById("secondSurname1").textContent.trim())
+    const member1Items = document.querySelectorAll("#member1 dd")
+    const member2Items = document.querySelectorAll("#member2 dd")
+
+    // Obtiene y formatea los datos del primer integrante
+    const firstName1 = formatText(document.getElementById("firstName1").textContent.trim())
+    const secondName1 = formatText(document.getElementById("secondName1").textContent.trim())
+    const firstSurname1 = formatText(document.getElementById("firstSurname1").textContent.trim())
+    const secondSurname1 = formatText(document.getElementById("secondSurname1").textContent.trim())
 
     
-    // // Obtiene y formatea los datos del segundo integrante
-    // const firstName2 = formatText(document.getElementById("firstName2").textContent.trim())
-    // const secondName2 = formatText(document.getElementById("secondName2").textContent.trim())
-    // const firstSurname2 = formatText(document.getElementById("firstSurname2").textContent.trim())
-    // const secondSurname2 = formatText(document.getElementById("secondSurname2").textContent.trim())
+    // Obtiene y formatea los datos del segundo integrante
+    const firstName2 = formatText(document.getElementById("firstName2").textContent.trim())
+    const secondName2 = formatText(document.getElementById("secondName2").textContent.trim())
+    const firstSurname2 = formatText(document.getElementById("firstSurname2").textContent.trim())
+    const secondSurname2 = formatText(document.getElementById("secondSurname2").textContent.trim())
 
 
-    // // Validar que ambos integrantes tengan al menos un nombre y un apellido
-    // const isPerson1Valid = isValidPerson(firstName1, firstSurname1)
-    // const isPerson2Valid = isValidPerson(firstName2, firstSurname2)
+    // Validar que ambos integrantes tengan al menos un nombre y un apellido
+    const isPerson1Valid = isValidPerson(firstName1, firstSurname1)
+    const isPerson2Valid = isValidPerson(firstName2, firstSurname2)
 
-    // if (!isPerson1Valid || ! isPerson2Valid) {
-    //     alert("Ambas personas deben tener al menos un nombre y un apellido.")
-    //     return
-    // }
+    if (!isPerson1Valid || ! isPerson2Valid) {
+        alert("Ambas personas deben tener al menos un nombre y un apellido.")
+        return
+    }
 
-    // // Crea el nombre completo del primer y segundo integrante
-    // const fullName1 = `${firstName1} ${secondName1} ${firstSurname1} ${secondSurname1}`.replace(/\s+/g, ' ').trim();
-    // const fullName2 = `${firstName2} ${secondName2} ${firstSurname2} ${secondSurname2}`.replace(/\s+/g, ' ').trim();
+    // Crea el nombre completo del primer y segundo integrante
+    const fullName1 = `${firstName1} ${secondName1} ${firstSurname1} ${secondSurname1}`.replace(/\s+/g, ' ').trim();
+    const fullName2 = `${firstName2} ${secondName2} ${firstSurname2} ${secondSurname2}`.replace(/\s+/g, ' ').trim();
  
-    // // Muestra en consola
-    // console.log("----");
-    // console.log(`Integrante 1: "${formatName(fullName1)}"`);
-    // console.log(`Integrante 2: "${formatName(fullName2)}"`);
-    // console.log("----");
+    // Muestra en consola
+    console.log("----");
+    console.log(`Integrante 1: "${formatName(fullName1)}"`);
+    console.log(`Integrante 2: "${formatName(fullName2)}"`);
+    console.log("----");
 
-    // // Comparacion de nombres - PASO 4
-    // const name1 = [firstName1, secondName1].filter(name => name !== "")
-    // const name2 = [firstName2, secondName2].filter(name => name !== "")
-    // const matchingNames = name1.filter(name => name2.includes(name))
+    // Comparacion de nombres - PASO 4
+    const name1 = [firstName1, secondName1].filter(name => name !== "")
+    const name2 = [firstName2, secondName2].filter(name => name !== "")
+    const matchingNames = name1.filter(name => name2.includes(name))
 
-    // colorIfConfirmed(member1Items, member2Items, matchingNames, "nombres")
+    colorIfConfirmed(member1Items, member2Items, matchingNames, "nombres")
     
 
 
-    // // Comparacion de apellidos con confirmacion previa - PASO 5
-    // const checkSurnames = confirm("¿Querés verificar si hay coincidencias en los apellidos?")
+    // Comparacion de apellidos con confirmacion previa - PASO 5
+    const checkSurnames = confirm("¿Querés verificar si hay coincidencias en los apellidos?")
 
-    // if (checkSurnames) {
-    //     const surnames1 = [firstSurname1, secondSurname1]. filter(s => s !== "")
-    //     const surnames2 = [firstSurname2, secondSurname2].filter(s => s !== "")
-    //     const matchingSurnames = surnames1.filter(s => surnames2.includes(s))
+    if (checkSurnames) {
+        const surnames1 = [firstSurname1, secondSurname1]. filter(s => s !== "")
+        const surnames2 = [firstSurname2, secondSurname2].filter(s => s !== "")
+        const matchingSurnames = surnames1.filter(s => surnames2.includes(s))
 
-    //     colorIfConfirmed(member1Items, member2Items, matchingSurnames, "apellidos")
+        colorIfConfirmed(member1Items, member2Items, matchingSurnames, "apellidos")
 
-    // }
+    }
 
 })
 
