@@ -181,12 +181,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-
+  /****************************************************************************/
+  /****************************************************************************/
 
 
   // MANEJO DE LISTA -> COMENTAR ESTA PARTE
+
   // Selecciona los elementos <dd> por clase 
 
+  
   // const member1Items = document.querySelectorAll("#member1 dd")
   // const member2Items = document.querySelectorAll("#member2 dd")
 

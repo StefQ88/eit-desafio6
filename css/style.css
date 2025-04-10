@@ -78,6 +78,7 @@ form legend {
     font-weight: bold;
     font-size: 1.2rem;
     color: #333;
+    padding: 0 4px;
 }
 
 /* Estilos para las etiquetas */
@@ -103,7 +104,7 @@ form input {
 form button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #2a2dcf;
+    background-color: #0f9b9b;
     color: white;
     border: none;
     border-radius: 6px;
