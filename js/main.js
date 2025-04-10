@@ -47,7 +47,7 @@ function formatName(fullName) {
   return fullParts.join(" "); // uno todo separado por espacios
 }
 
-// Funcion para solicitar y aplicar color si hay coincidencias, recibe lista de elementos y array con valores coincidentes
+// Aplica color si hay coincidencias (para inputs y listas)
 function colorIfConfirmed(elements1, elements2, matches, tipo = "nombres") {
   if (matches.length > 0) { // verifica si hay coincidencia
 
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData1 = { firstName1, secondName1, firstSurname1, secondSurname1 }
   })
 
-  // Boton del primer integrante - capturo los valores de los inputs, escribo la funcion dentro del evento
+  // Boton del segundo integrante - capturo los valores de los inputs, escribo la funcion dentro del evento
   btn2.addEventListener("click", () => {
 
     const f2 = document.getElementById("formFirstName2")
@@ -141,28 +141,47 @@ document.addEventListener("DOMContentLoaded", () => {
     formData2 = { firstName2, secondName2, firstSurname2, secondSurname2 }
 
     // compara los datos
-    compareFormData(formData1, formData2)
+    compareFormData(formData1, formData2) // llama a la funcion
   })
 
-  // compara los datos cargados en el formulario
+  // compara los datos cargados en ambos formularios
   function compareFormData(d1, d2) {
-    if (!d1.firstName1 || d2.firstName2) {
+    if (!d1.firstName1 || !d2.firstName2) {
       alert("Completá ambos formularios antes de comparar.")
+      return
     }
-    return
+
+    // comparo nombres
+    const names1 = [d1.firstName1, d1.secondName1].filter(n => n)
+    const names2 = [d2.firstName2, d2.secondName2].filter(n => n)
+    const matchingNames = names1.filter(n => names2.includes(n))
+
+    // aplico color a los nombres de los dos integrantes, llamo a la funcion
+    colorIfConfirmed(
+      [document.getElementById("formFirstName1"), document.getElementById("formSecondName1")],
+      [document.getElementById("formFirstName2"), document.getElementById("formSecondName2")],
+      matchingNames,
+      "nombres"
+    )
+
+    // comparo apellidos si el usuario acepta
+    if (confirm("¿Querés verificar si hay coincidencias en los apellidos?")) {
+      const surnames1 = [d1.firstSurname1, d1.secondSurname1].filter(n => n)
+      const surnmaes2 = [d2.firstSurname2, d2.secondSurname2].filter(n => n)
+      const matchingSurnames = surnames1.filter(n => surnmaes2.includes(n))
+
+      // aplico color a los apellidos
+      colorIfConfirmed(
+        [document.getElementById("formFirstSurname1"), document.getElementById("formSecondSurname1")],
+        [document.getElementById("formFirstSurname2"), document.getElementById("formSecondSurname2")],
+        matchingSurnames,
+        "apellidos"
+      )
+    }
+
   }
 
-  
 
-
-
-
-
-
-
-  /*********************************************************/
-  // FALTA AGREGAR COMPARACION PARA FORM
-  /********************************************************/
 
 
   // MANEJO DE LISTA -> COMENTAR ESTA PARTE
@@ -224,6 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //     colorIfConfirmed(member1Items, member2Items, matchingSurnames, "apellidos")
 
   // }
+
 
 })
 
